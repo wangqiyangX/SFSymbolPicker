@@ -2,7 +2,7 @@
 //  ESFSymbolCategory.swift
 //  SFSymbolPicker
 //
-//  Created by kaiyang0815 on 2025/4/22.
+//  Created by wangqiyangX on 2025/4/22.
 //
 //
 

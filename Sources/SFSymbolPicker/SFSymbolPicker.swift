@@ -1,10 +1,25 @@
+//
+//  SFSymbolPickerSheetView.swift
+//  SFSymbolPicker
+//
+//  Created by wangqiyangX on 2025/4/22.
+//
+//
+
 import SwiftUI
 
+/// A view that displays a sheet for picking SF Symbols
 struct SFSymbolPickerSheetView: View {
+    /// The title of the picker
     let titleKey: LocalizedStringKey
+
+    /// The currently selected symbol category
     @State private var selectedSymbolCategory: ESFSymbolCategory = .all
+
+    /// The binding to the selected symbol
     @Binding var selectedSymbol: String
 
+    /// Environment value for dismissing the sheet
     @Environment(\.dismiss) private var dismiss
 
     var body: some View {
@@ -14,8 +29,7 @@ struct SFSymbolPickerSheetView: View {
                     columns: [GridItem(.adaptive(minimum: 80))],
                     spacing: 20
                 ) {
-                    ForEach(selectedSymbolCategory.symbols, id: \.self) {
-                        symbol in
+                    ForEach(selectedSymbolCategory.symbols, id: \.self) { symbol in
                         Image(systemName: symbol)
                             .frame(
                                 maxWidth: .infinity,
@@ -41,16 +55,18 @@ struct SFSymbolPickerSheetView: View {
                 .padding()
             }
             .navigationTitle(titleKey)
-            .navigationBarTitleDisplayMode(.inline)
+            #if os(iOS)
+                .navigationBarTitleDisplayMode(.inline)
+            #endif
             .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
+                ToolbarItem(placement: .primaryAction) {
                     Picker("Category", selection: $selectedSymbolCategory) {
                         ForEach(ESFSymbolCategory.allCases) { category in
                             Text(category.name)
                         }
                     }
                 }
-                ToolbarItem(placement: .topBarTrailing) {
+                ToolbarItem(placement: .cancellationAction) {
                     Button {
                         withAnimation {
                             dismiss()
@@ -64,10 +80,15 @@ struct SFSymbolPickerSheetView: View {
     }
 }
 
+/// A view that provides a button to show the SF Symbol picker sheet
 struct SFSymbolPicker: View {
+    /// The title of the picker
     let titleKey: LocalizedStringKey
+
+    /// The binding to the selected symbol
     @Binding var selection: String
 
+    /// State for controlling the sheet presentation
     @State private var showSheet: Bool = false
 
     init(_ titleKey: LocalizedStringKey, selection: Binding<String>) {
