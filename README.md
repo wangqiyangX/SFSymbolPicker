@@ -2,7 +2,7 @@
 
 A beautiful and intuitive SwiftUI component for picking SF Symbols in your iOS and macOS apps.
 
-![SFSymbolPicker Preview](preview.png)
+![SFSymbolPicker Preview](/images/preview.png)
 
 ## Features
 
@@ -70,5 +70,5 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## Acknowledgments
 
-- Apple for creating SF Symbols
+- Apple for creating SF Symbols 6
 - The SwiftUI team for making this possible
