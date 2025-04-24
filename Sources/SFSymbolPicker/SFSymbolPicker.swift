@@ -29,7 +29,8 @@ struct SFSymbolPickerSheetView: View {
                     columns: [GridItem(.adaptive(minimum: 80))],
                     spacing: 20
                 ) {
-                    ForEach(selectedSymbolCategory.symbols, id: \.self) { symbol in
+                    ForEach(selectedSymbolCategory.symbols, id: \.self) {
+                        symbol in
                         Image(systemName: symbol)
                             .frame(
                                 maxWidth: .infinity,
@@ -81,7 +82,7 @@ struct SFSymbolPickerSheetView: View {
 }
 
 /// A view that provides a button to show the SF Symbol picker sheet
-struct SFSymbolPicker: View {
+public struct SFSymbolPicker: View {
     /// The title of the picker
     let titleKey: LocalizedStringKey
 
@@ -91,12 +92,12 @@ struct SFSymbolPicker: View {
     /// State for controlling the sheet presentation
     @State private var showSheet: Bool = false
 
-    init(_ titleKey: LocalizedStringKey, selection: Binding<String>) {
+    public init(_ titleKey: LocalizedStringKey, selection: Binding<String>) {
         self.titleKey = titleKey
         self._selection = selection
     }
 
-    var body: some View {
+    public var body: some View {
         LabeledContent {
             Button {
                 withAnimation {
@@ -110,7 +111,10 @@ struct SFSymbolPicker: View {
             Text(titleKey)
         }
         .sheet(isPresented: $showSheet) {
-            SFSymbolPickerSheetView(titleKey: titleKey, selectedSymbol: $selection)
+            SFSymbolPickerSheetView(
+                titleKey: titleKey,
+                selectedSymbol: $selection
+            )
         }
     }
 }
