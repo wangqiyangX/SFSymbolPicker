@@ -1,4 +1,13 @@
-# SFSymbolPicker 1.0.0
+# SFSymbolPicker 1.0.1
+
+## 🔄 Improvements
+
+This release focuses on improving code quality and accessibility:
+
+- Enhanced code readability through better property organization
+- Improved accessibility by making key properties public
+- Refined closure syntax for better Swift idioms
+- Updated documentation for better clarity
 
 ## 🎉 Initial Release
 
@@ -18,7 +27,7 @@ Add the package to your project using Swift Package Manager:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/wangqiyangX/SFSymbolPicker.git", from: "1.0.0")
+    .package(url: "https://github.com/wangqiyangX/SFSymbolPicker.git", from: "1.0.1")
 ]
 ```
 
