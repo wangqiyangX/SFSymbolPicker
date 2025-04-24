@@ -24,7 +24,7 @@ import PackageDescription
 /// Add the package to your project using Swift Package Manager:
 /// ```swift
 /// dependencies: [
-///     .package(url: "https://github.com/wangqiyangX/SFSymbolPicker.git", from: "1.0.1")
+///     .package(url: "https://github.com/wangqiyangX/SFSymbolPicker.git", from: "1.0.2")
 /// ]
 /// ```
 let package = Package(
